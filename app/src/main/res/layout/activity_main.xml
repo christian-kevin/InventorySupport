@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    style="@style/MyMainLayout"
+    >
+
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:src="@drawable/rm_logo"
+        android:scaleType="fitXY"
+        android:id="@+id/btnGBB"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:src="@drawable/fg_logo"
+        android:id="@+id/btnGBJ"
+        android:scaleType="fitXY"
+        android:layout_height="120dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="175dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:src="@drawable/or_logo"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="315dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:id="@+id/btnOrder" />
+
+
+</RelativeLayout>
+

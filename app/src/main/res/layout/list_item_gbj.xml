@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    <TextView
+        android:id="@+id/norek"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#000fff"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5d5d5d"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/norek"
+        android:layout_toEndOf="@+id/norek"
+        />
+
+</RelativeLayout>
+
+    <TextView
+        android:id="@+id/kodematerial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:textSize="35px"
+        android:textColor="#008f88"
+        />
+
+
+    <TextView
+        android:id="@+id/namabarang"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5d5d5d"
+        android:textSize="50px"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/ukuran"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5d5d5d"
+        android:textSize="35px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/customer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5d5d5d"
+        android:textSize="40px"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
+

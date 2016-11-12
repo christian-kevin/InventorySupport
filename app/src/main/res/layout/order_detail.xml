@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50px"
+        android:scrollbars="horizontal">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:id="@+id/textnorek"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:id="@+id/textukuran"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:id="@+id/textnamabarang" />
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:id="@+id/textcustomer" />
+
+    <HorizontalScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="30dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:textSize="35px"
+            android:textStyle="bold"
+            android:text="Tanggal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/noos"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:textSize="35px"
+            android:text="No OS"
+            android:textStyle="bold"
+            android:layout_alignBaseline="@+id/tanggal"
+            android:layout_alignBottom="@+id/tanggal"
+            android:layout_toRightOf="@+id/tanggal"
+            android:layout_toEndOf="@+id/tanggal" />
+
+        <TextView
+            android:id="@+id/tanggalos"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="35px"
+            android:text="Tanggal OS"
+            android:textStyle="bold"
+            android:layout_alignBaseline="@+id/noos"
+            android:layout_alignBottom="@+id/noos"
+            android:layout_toRightOf="@+id/noos"
+            android:layout_toEndOf="@+id/noos"
+            />
+
+        <TextView
+            android:id="@+id/nopo"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="35px"
+            android:textStyle="bold"
+            android:text="No PO"
+            android:layout_alignBottom="@+id/tanggalos"
+            android:layout_toRightOf="@+id/tanggalos"
+            android:layout_toEndOf="@+id/tanggalos" />
+
+        <TextView
+            android:id="@+id/tanggaldorev"
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="35px"
+            android:textStyle="bold"
+            android:text="Tanggal DO Rev"
+            android:layout_alignBaseline="@+id/nopo"
+            android:layout_alignBottom="@+id/nopo"
+            android:layout_toRightOf="@+id/nopo"
+            android:layout_toEndOf="@+id/nopo" />
+
+        <TextView
+            android:id="@+id/order"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="35px"
+            android:textStyle="bold"
+            android:text="Order"
+            android:layout_alignBaseline="@+id/tanggaldorev"
+            android:layout_alignBottom="@+id/tanggaldorev"
+            android:layout_toRightOf="@+id/tanggaldorev"
+            android:layout_toEndOf="@+id/tanggaldorev" />
+
+        <TextView
+            android:id="@+id/pengiriman"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="35px"
+            android:textStyle="bold"
+            android:text="Kirim"
+            android:layout_alignBaseline="@+id/order"
+            android:layout_alignBottom="@+id/order"
+            android:layout_toRightOf="@+id/order"
+            android:layout_toEndOf="@+id/order" />
+
+        <TextView
+            android:id="@+id/sisaorder"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="35px"
+            android:textStyle="bold"
+            android:text="Sisa Order"
+            android:layout_alignBaseline="@+id/pengiriman"
+            android:layout_alignBottom="@+id/pengiriman"
+            android:layout_toRightOf="@+id/pengiriman"
+            android:layout_toEndOf="@+id/pengiriman" />
+
+        <TextView
+            android:id="@+id/uom"
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="35px"
+            android:textStyle="bold"
+            android:text="UOM"
+            android:layout_alignBaseline="@+id/sisaorder"
+            android:layout_alignBottom="@+id/sisaorder"
+            android:layout_toRightOf="@+id/sisaorder"
+            android:layout_toEndOf="@+id/sisaorder" />
+  </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list"
+        android:orientation="vertical">
+
+
+    </ListView>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonBack"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
