@@ -31,7 +31,7 @@ import java.util.List;
  * Created by lenovo on 06/11/16.
  */
 
-public class ItemDetail extends AppCompatActivity implements View.OnClickListener{
+public class ItemDetail extends AppCompatActivity {
     private ProgressDialog pDialog;
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
@@ -41,7 +41,6 @@ public class ItemDetail extends AppCompatActivity implements View.OnClickListene
     private static String url_gwip = "http://10.0.2.2:8080/gudangwipdetail.php";
 
     private TextView norek,ukuran,namabarang,customer;
-    private Button buttonback;
     private ArrayList<HashMap<String, String>> itemList;
     private ListView lv;
 
@@ -80,8 +79,6 @@ public class ItemDetail extends AppCompatActivity implements View.OnClickListene
             ukuran.setText(getIntent().getExtras().getString("ukuran"));
             customer.setText(" ");
         }
-        buttonback=(Button)findViewById(R.id.buttonBack);
-        buttonback.setOnClickListener(this);
 
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -115,14 +112,6 @@ public class ItemDetail extends AppCompatActivity implements View.OnClickListene
 
 
 
-    @Override
-    public void onClick(View view) {
-        if(view.getId()==R.id.buttonBack)
-        {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        }
-    }
 
     class StockList extends AsyncTask<Void,Void,Void> {
 

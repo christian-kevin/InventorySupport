@@ -32,7 +32,7 @@ import java.util.List;
  * Created by lenovo on 09/11/16.
  */
 
-public class ViewListGBB extends AppCompatActivity implements View.OnClickListener {
+public class ViewListGBB extends AppCompatActivity  {
 
     private ProgressDialog pDialog;
     JSONParser jParser = new JSONParser();
@@ -43,7 +43,6 @@ public class ViewListGBB extends AppCompatActivity implements View.OnClickListen
     private ArrayList<HashMap<String, String>> itemList;
 
     private ListView lv;
-    private Button buttonBack;
     private String strnorek,strnamabarang,strukuran,strcustomer;
     String date,title;
     private TextView updatedate;
@@ -53,9 +52,7 @@ public class ViewListGBB extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
         itemList = new ArrayList<>();
-        buttonBack=(Button)findViewById(R.id.buttonBack);
         updatedate=(TextView)findViewById(R.id.updatedate);
-        buttonBack.setOnClickListener(this);
 
         if(getIntent().getExtras().getInt("jenisgudang")==1)
         {
@@ -110,13 +107,6 @@ public class ViewListGBB extends AppCompatActivity implements View.OnClickListen
     }
 
 
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.buttonBack) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        }
-    }
 
     class DisplayList extends AsyncTask<Void, Void, Void> {
 

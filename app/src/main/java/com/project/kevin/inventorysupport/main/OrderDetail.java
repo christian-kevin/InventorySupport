@@ -31,7 +31,7 @@ import java.util.List;
  * Created by lenovo on 09/11/16.
  */
 
-public class OrderDetail extends AppCompatActivity implements View.OnClickListener{
+public class OrderDetail extends AppCompatActivity {
     private ProgressDialog pDialog;
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
@@ -70,9 +70,6 @@ public class OrderDetail extends AppCompatActivity implements View.OnClickListen
             title="Outstanding Order";
         }
 
-        buttonback=(Button)findViewById(R.id.buttonBack);
-        buttonback.setOnClickListener(this);
-
         itemList = new ArrayList<>();
         new OrderList().execute();
 
@@ -104,16 +101,6 @@ public class OrderDetail extends AppCompatActivity implements View.OnClickListen
         return super.onOptionsItemSelected(item);
     }
 
-
-
-    @Override
-    public void onClick(View view) {
-        if(view.getId()==R.id.buttonBack)
-        {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        }
-    }
 
     class OrderList extends AsyncTask<Void,Void,Void> {
 
