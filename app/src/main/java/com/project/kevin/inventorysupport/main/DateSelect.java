@@ -3,6 +3,7 @@ package com.project.kevin.inventorysupport.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ public class DateSelect extends AppCompatActivity implements View.OnClickListene
     private Button buttonNext,buttonBack;
     private MyEditDatePicker editDatePickerStart,editDatePickerEnd;
     Calendar myCalendar = Calendar.getInstance();
+    String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,18 @@ public class DateSelect extends AppCompatActivity implements View.OnClickListene
         buttonBack=(Button)findViewById(R.id.buttonBack);
         //datestart.setText(getIntent().getExtras().getString("customer"));
 
+        if(getIntent().getExtras().getInt("jenisgudang")==1)
+        {
+            title="Gudang Bahan Baku";
+        }
+        else if(getIntent().getExtras().getInt("jenisgudang")==3)
+        {
+            title="Gudang Barang Jadi";
+        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
+        {
+            title="Outstanding Order";
+        }
+
         datestart.setText(myCalendar.get(Calendar.YEAR) +"/"
                 + (myCalendar.get(Calendar.MONTH) + 1) +"/"
                 + "1");
@@ -42,12 +56,29 @@ public class DateSelect extends AppCompatActivity implements View.OnClickListene
                 + myCalendar.get(Calendar.DATE));
         editDatePickerStart = new MyEditDatePicker(this,R.id.datestart);
         editDatePickerEnd = new MyEditDatePicker(this,R.id.dateend);
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         buttonNext.setOnClickListener(this);
         buttonBack.setOnClickListener(this);
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == android.R.id.home){
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     public void onClick(View view) {

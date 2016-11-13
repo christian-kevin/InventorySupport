@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -41,6 +42,7 @@ public class OrderDetail extends AppCompatActivity implements View.OnClickListen
     private Button buttonback;
     private ArrayList<HashMap<String, String>> itemList;
     private ListView lv;
+    String title;
     // private String strtanggal,strstokawalminggu,strin,strout,strstokakhirminggu;
 
     @Override
@@ -56,11 +58,26 @@ public class OrderDetail extends AppCompatActivity implements View.OnClickListen
             ukuran.setText(getIntent().getExtras().getString("ukuran"));
             customer.setText(getIntent().getExtras().getString("customer"));
 
+        if(getIntent().getExtras().getInt("jenisgudang")==1)
+        {
+            title="Gudang Bahan Baku";
+        }
+        else if(getIntent().getExtras().getInt("jenisgudang")==3)
+        {
+            title="Gudang Barang Jadi";
+        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
+        {
+            title="Outstanding Order";
+        }
+
         buttonback=(Button)findViewById(R.id.buttonBack);
         buttonback.setOnClickListener(this);
 
         itemList = new ArrayList<>();
         new OrderList().execute();
+
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         lv = (ListView)findViewById(R.id.list);
 
@@ -71,6 +88,22 @@ public class OrderDetail extends AppCompatActivity implements View.OnClickListen
 
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == android.R.id.home){
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
     @Override

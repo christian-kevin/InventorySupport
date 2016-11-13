@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -43,7 +44,7 @@ public class ViewListGBJ extends AppCompatActivity implements View.OnClickListen
     private Button buttonBack;
     private String strnorek,strnamabarang,strukuran,strcustomer;
     private TextView updatedate;
-    String date;
+    String date,title;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,20 @@ public class ViewListGBJ extends AppCompatActivity implements View.OnClickListen
         buttonBack=(Button)findViewById(R.id.buttonBack);
         updatedate=(TextView)findViewById(R.id.updatedate);
         buttonBack.setOnClickListener(this);
+
+        if(getIntent().getExtras().getInt("jenisgudang")==1)
+        {
+            title="Gudang Bahan Baku";
+        }
+        else if(getIntent().getExtras().getInt("jenisgudang")==3)
+        {
+            title="Gudang Barang Jadi";
+        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
+        {
+            title="Outstanding Order";
+        }
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         lv = (ListView)findViewById(R.id.list);
@@ -77,6 +92,22 @@ public class ViewListGBJ extends AppCompatActivity implements View.OnClickListen
                 //Toast.makeText(getBaseContext(),strnorek,Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == android.R.id.home){
+            Intent intent = new Intent(getApplicationContext(),SearchFormGBJ.class);
+            intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
