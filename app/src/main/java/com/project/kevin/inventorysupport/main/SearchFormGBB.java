@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.project.kevin.inventorysupport.R;
 
@@ -19,6 +20,7 @@ public class SearchFormGBB extends AppCompatActivity implements View.OnClickList
     private EditText norek,namabarang,ukuran;
     private Button buttonNext,buttonBack;
     String title;
+    TextView ukurantext;
 
 
     @Override
@@ -30,19 +32,24 @@ public class SearchFormGBB extends AppCompatActivity implements View.OnClickList
         norek=(EditText)findViewById(R.id.norek);
         namabarang=(EditText)findViewById(R.id.namabarang);
         ukuran=(EditText)findViewById(R.id.ukuran);
+        ukurantext=(TextView)findViewById(R.id.textView4);
         buttonNext=(Button)findViewById(R.id.buttonNext);
         buttonBack=(Button)findViewById(R.id.buttonBack);
         if(getIntent().getExtras().getInt("jenisgudang")==1)
         {
             title="Gudang Bahan Baku";
         }
-        else if(getIntent().getExtras().getInt("jenisgudang")==3)
+        if(getIntent().getExtras().getInt("company")==1)
         {
-            title="Gudang Barang Jadi";
-        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
-        {
-            title="Outstanding Order";
+            getSupportActionBar().setSubtitle("TA 1");
         }
+        if(getIntent().getExtras().getInt("company")==2)
+        {
+            ukuran.setVisibility(View.INVISIBLE);
+            ukurantext.setVisibility(View.INVISIBLE);
+            getSupportActionBar().setSubtitle("TA 2");
+        }
+
 
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,6 +86,7 @@ public class SearchFormGBB extends AppCompatActivity implements View.OnClickList
             intent.putExtra("namabarang",namabarang.getText().toString());
             intent.putExtra("ukuran",ukuran.getText().toString());
             intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
+            intent.putExtra("company",getIntent().getExtras().getInt("company"));
             startActivity(intent);
         }
 
