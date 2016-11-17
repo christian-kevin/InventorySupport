@@ -18,7 +18,7 @@ public class BranchCompanySelection extends AppCompatActivity implements View.On
 
     private RadioButton radioBtnTA1,radioBtnTA2;
     private Button btnNext;
-    private int companyid;
+    private int companyid=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +63,13 @@ public class BranchCompanySelection extends AppCompatActivity implements View.On
                 Intent intent = new Intent(getApplicationContext(), SearchFormGBB.class);
                 intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
                 intent.putExtra("company",companyid);
+                startActivity(intent);
             }
             if (getIntent().getExtras().getInt("jenisgudang") == 2 || getIntent().getExtras().getInt("jenisgudang") == 3){
                 Intent intent = new Intent(getApplicationContext(), SearchFormGBJ.class);
                 intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
                 intent.putExtra("company",companyid);
+                startActivity(intent);
             }
         }
 

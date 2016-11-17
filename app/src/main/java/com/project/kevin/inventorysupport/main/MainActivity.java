@@ -51,20 +51,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(v.getId()==R.id.btnGBB)
         {
-            Intent intent = new Intent(getApplicationContext(), SearchFormGBB.class);
+            Intent intent = new Intent(getApplicationContext(), BranchCompanySelection.class);
             intent.putExtra("jenisgudang",1);
             startActivity(intent);
         }
         if(v.getId()==R.id.btnGBJ)
         {
-            Intent intent = new Intent(getApplicationContext(), SearchFormGBJ.class);
-            intent.putExtra("jenisgudang",3);
+            Intent intent = new Intent(getApplicationContext(), BranchCompanySelection.class);
+            intent.putExtra("jenisgudang",2);
             startActivity(intent);
         }
         if(v.getId()==R.id.btnOrder)
         {
                 Intent intent = new Intent(getApplicationContext(), SearchFormGBJ.class);
-        intent.putExtra("jenisgudang",4);
+        intent.putExtra("jenisgudang",3);
         startActivity(intent);}
 
     }

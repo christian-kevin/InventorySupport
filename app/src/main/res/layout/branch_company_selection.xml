@@ -7,7 +7,7 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
 
     <RadioButton
         android:text="TUNAS ALFIN CIPONDOH"
@@ -16,7 +16,7 @@
         android:layout_marginTop="70dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:id="@+id/radioButtonTA1" />
 
     <RadioButton
@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="111dp"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:id="@+id/radioButtonTA2" />
+    </RadioGroup>
 
     <Button
         android:text="Next"
