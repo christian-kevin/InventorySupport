@@ -36,7 +36,8 @@ public class ViewListGBJ extends AppCompatActivity {
     private ProgressDialog pDialog;
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
-    private static String url_gbj = "http://www.tunasalfin.com/gudangbarangjadi.php";
+    private static String url_gbj = "http://10.0.2.2:8080/gudangbarangjadi.php";
+    private static String url_gbj2 = "http://10.0.2.2:8080/gudangbarangjadita2.php";
 
     private ArrayList<HashMap<String, String>> itemList;
 
@@ -52,17 +53,23 @@ public class ViewListGBJ extends AppCompatActivity {
         itemList = new ArrayList<>();
         updatedate=(TextView)findViewById(R.id.updatedate);
 
-        if(getIntent().getExtras().getInt("jenisgudang")==1)
-        {
-            title="Gudang Bahan Baku";
-        }
-        else if(getIntent().getExtras().getInt("jenisgudang")==3)
+        if(getIntent().getExtras().getInt("jenisgudang")==3)
         {
             title="Gudang Barang Jadi";
         } else if(getIntent().getExtras().getInt("jenisgudang")==4)
         {
             title="Outstanding Order";
         }
+
+        if(getIntent().getExtras().getInt("company")==1)
+        {
+            getSupportActionBar().setSubtitle("TA 1");
+        }
+        if(getIntent().getExtras().getInt("company")==2)
+        {
+            getSupportActionBar().setSubtitle("TA 2");
+        }
+
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -85,6 +92,7 @@ public class ViewListGBJ extends AppCompatActivity {
                 intent.putExtra("customer",strcustomer);
                 intent.putExtra("ukuran",strukuran);
                 intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
+                intent.putExtra("company",getIntent().getExtras().getInt("company"));
                 startActivity(intent);
                 //Toast.makeText(getBaseContext(),strnorek,Toast.LENGTH_SHORT).show();
             }
@@ -101,6 +109,7 @@ public class ViewListGBJ extends AppCompatActivity {
         if (id == android.R.id.home){
             Intent intent = new Intent(getApplicationContext(),SearchFormGBJ.class);
             intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
+            intent.putExtra("company",getIntent().getExtras().getInt("company"));
             startActivity(intent);
         }
 
@@ -134,7 +143,10 @@ public class ViewListGBJ extends AppCompatActivity {
             //params.add(new BasicNameValuePair("datestart",getIntent().getExtras().getString("datestart")));
             //params.add(new BasicNameValuePair("dateend",getIntent().getExtras().getString("dateend")));
             try {
-                jObject = jParser.makeHttpRequest(url_gbj, "GET", params);
+                if(getIntent().getExtras().getInt("company")==1)
+                    jObject = jParser.makeHttpRequest(url_gbj, "GET", params);
+                if(getIntent().getExtras().getInt("company")==2)
+                    jObject = jParser.makeHttpRequest(url_gbj2, "GET", params);
                 Log.d("SearchResponse", jObject.toString());
                 JSONArray barang = jObject.getJSONArray("barang");
                 Log.d("Array",barang.toString());
