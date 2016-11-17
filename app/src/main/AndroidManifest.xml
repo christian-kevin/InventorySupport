@@ -25,6 +25,7 @@
         <activity android:name=".main.ViewListGBB"></activity>
         <activity android:name=".main.ItemDetail"></activity>
         <activity android:name=".main.OrderDetail"></activity>
+        <activity android:name=".main.BranchCompanySelection"></activity>
 
     </application>
 
