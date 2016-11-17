@@ -40,12 +40,20 @@ public class DateSelect extends AppCompatActivity implements View.OnClickListene
         {
             title="Gudang Bahan Baku";
         }
-        else if(getIntent().getExtras().getInt("jenisgudang")==3)
+        else if(getIntent().getExtras().getInt("jenisgudang")==2)
         {
             title="Gudang Barang Jadi";
-        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
+        } else if(getIntent().getExtras().getInt("jenisgudang")==3)
         {
             title="Outstanding Order";
+        }
+        if(getIntent().getExtras().getInt("company")==1)
+        {
+            getSupportActionBar().setSubtitle("TA 1");
+        }
+        if(getIntent().getExtras().getInt("company")==2)
+        {
+            getSupportActionBar().setSubtitle("TA 2");
         }
 
         datestart.setText(myCalendar.get(Calendar.YEAR) +"/"
@@ -86,6 +94,7 @@ public class DateSelect extends AppCompatActivity implements View.OnClickListene
         {
             Intent intent = new Intent(getApplicationContext(), SearchFormGBJ.class);
             intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
+            intent.putExtra("company",getIntent().getExtras().getInt("company"));
             startActivity(intent);
         }
         if(view.getId()==R.id.buttonNext)
@@ -93,13 +102,14 @@ public class DateSelect extends AppCompatActivity implements View.OnClickListene
             if(datestart.getText().toString().matches("") || dateend.getText().toString().matches(""))
                 Toast.makeText(getBaseContext(),"Tanggal Belum Terisi!!!",Toast.LENGTH_SHORT).show();
             else {
-                if (getIntent().getExtras().getInt("jenisgudang") == 3) {
+                if (getIntent().getExtras().getInt("jenisgudang") == 2) {
                     Intent intent = new Intent(getApplicationContext(), ItemDetail.class);
                     intent.putExtra("norek", getIntent().getExtras().getString("norek"));
                     intent.putExtra("namabarang", getIntent().getExtras().getString("namabarang"));
                     intent.putExtra("customer", getIntent().getExtras().getString("customer"));
                     intent.putExtra("ukuran", getIntent().getExtras().getString("ukuran"));
                     intent.putExtra("jenisgudang", getIntent().getExtras().getInt("jenisgudang"));
+                    intent.putExtra("company",getIntent().getExtras().getInt("company"));
                     intent.putExtra("datestart", datestart.getText().toString());
                     intent.putExtra("dateend", dateend.getText().toString());
                     startActivity(intent);
@@ -110,17 +120,19 @@ public class DateSelect extends AppCompatActivity implements View.OnClickListene
                     intent.putExtra("namabarang", getIntent().getExtras().getString("namabarang"));
                     intent.putExtra("ukuran", getIntent().getExtras().getString("ukuran"));
                     intent.putExtra("jenisgudang", getIntent().getExtras().getInt("jenisgudang"));
+                    intent.putExtra("company",getIntent().getExtras().getInt("company"));
                     intent.putExtra("datestart", datestart.getText().toString());
                     intent.putExtra("dateend", dateend.getText().toString());
                     startActivity(intent);
                 }
-                if (getIntent().getExtras().getInt("jenisgudang") == 4) {
+                if (getIntent().getExtras().getInt("jenisgudang") == 3) {
                     Intent intent = new Intent(getApplicationContext(), OrderDetail.class);
                     intent.putExtra("norek", getIntent().getExtras().getString("norek"));
                     intent.putExtra("namabarang", getIntent().getExtras().getString("namabarang"));
                     intent.putExtra("customer", getIntent().getExtras().getString("customer"));
                     intent.putExtra("ukuran", getIntent().getExtras().getString("ukuran"));
                     intent.putExtra("jenisgudang", getIntent().getExtras().getInt("jenisgudang"));
+                    intent.putExtra("company",getIntent().getExtras().getInt("company"));
                     intent.putExtra("datestart", datestart.getText().toString());
                     intent.putExtra("dateend", dateend.getText().toString());
                     startActivity(intent);

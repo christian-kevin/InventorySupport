@@ -36,9 +36,10 @@ public class ItemDetail extends AppCompatActivity {
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
     JSONArray jArray = new JSONArray();
-    private static String url_gbj = "http://www.tunasalfin.com/gudangbarangjadidetail.php";
-    private static String url_gbb = "http://www.tunasalfin.com/gudangbahanbakudetail.php";
-    private static String url_gwip = "http://10.0.2.2:8080/gudangwipdetail.php";
+    private static String url_gbj = "http://10.0.2.2:8080/gudangbarangjadidetail.php";
+    private static String url_gbb = "http://10.0.2.2:8080/gudangbahanbakudetail.php";
+    private static String url_gbb2 = "http://10.0.2.2:8080/gudangbahanbakuta2detail.php";
+    private static String url_gbj2 = "http://10.0.2.2:8080/gudangbarangjadita2detail.php";
 
     private TextView norek,ukuran,namabarang,customer;
     private ArrayList<HashMap<String, String>> itemList;
@@ -60,14 +61,22 @@ public class ItemDetail extends AppCompatActivity {
         {
             title="Gudang Bahan Baku";
         }
-        else if(getIntent().getExtras().getInt("jenisgudang")==3)
+        else if(getIntent().getExtras().getInt("jenisgudang")==2)
         {
             title="Gudang Barang Jadi";
-        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
+        } else if(getIntent().getExtras().getInt("jenisgudang")==3)
         {
             title="Outstanding Order";
         }
-        if(getIntent().getExtras().getInt("jenisgudang")==3) {
+        if(getIntent().getExtras().getInt("company")==1)
+        {
+            getSupportActionBar().setSubtitle("TA 1");
+        }
+        if(getIntent().getExtras().getInt("company")==2)
+        {
+            getSupportActionBar().setSubtitle("TA 2");
+        }
+        if(getIntent().getExtras().getInt("jenisgudang")==2) {
             norek.setText(getIntent().getExtras().getString("norek"));
             namabarang.setText(getIntent().getExtras().getString("namabarang"));
             ukuran.setText(getIntent().getExtras().getString("ukuran"));
@@ -136,11 +145,17 @@ public class ItemDetail extends AppCompatActivity {
             params.add(new BasicNameValuePair("datestart",getIntent().getExtras().getString("datestart")));
             params.add(new BasicNameValuePair("dateend",getIntent().getExtras().getString("dateend")));
             try {
-                if(getIntent().getExtras().getInt("jenisgudang")==3) {
+                if(getIntent().getExtras().getInt("jenisgudang")==2 && getIntent().getExtras().getInt("company")==1) {
                     jObject = jParser.makeHttpRequest(url_gbj, "GET", params);
                 }
-                if(getIntent().getExtras().getInt("jenisgudang")==1) {
+                if(getIntent().getExtras().getInt("jenisgudang")==2 && getIntent().getExtras().getInt("company")==2) {
+                    jObject = jParser.makeHttpRequest(url_gbj2, "GET", params);
+                }
+                if(getIntent().getExtras().getInt("jenisgudang")==1 && getIntent().getExtras().getInt("company")==1) {
                     jObject = jParser.makeHttpRequest(url_gbb, "GET", params);
+                }
+                if(getIntent().getExtras().getInt("jenisgudang")==1 && getIntent().getExtras().getInt("company")==2) {
+                    jObject = jParser.makeHttpRequest(url_gbb2, "GET", params);
                 }
                 Log.d("SearchResponse", jObject.toString());
                 jArray = jObject.getJSONArray(getIntent().getExtras().getString("norek"));
