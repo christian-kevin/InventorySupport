@@ -56,7 +56,7 @@ public class ZoomListView extends ListView {
         final int action = ev.getAction();
         mScaleDetector.onTouchEvent(ev);
         switch (action & MotionEvent.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN: {
+            case MotionEvent.ACTION_DOWN: {   // first finger down only
                 final float x = ev.getX();
                 final float y = ev.getY();
 
@@ -94,7 +94,7 @@ public class ZoomListView extends ListView {
                 break;
             }
 
-            case MotionEvent.ACTION_UP: {
+            case MotionEvent.ACTION_UP: { // first finger lifted
                 mActivePointerId = INVALID_POINTER_ID;
                 break;
             }
@@ -104,7 +104,7 @@ public class ZoomListView extends ListView {
                 break;
             }
 
-            case MotionEvent.ACTION_POINTER_UP: {
+            case MotionEvent.ACTION_POINTER_UP: { // second finger lifted
                 final int pointerIndex = (action & MotionEvent.ACTION_POINTER_INDEX_MASK) >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
                 final int pointerId = ev.getPointerId(pointerIndex);
                 if (pointerId == mActivePointerId) {
