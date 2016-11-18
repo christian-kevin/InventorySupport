@@ -6,13 +6,14 @@ import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 /**
  * Created by lenovo on 18/11/16.
  */
 
-public class ZoomListView extends ListView {
+public class ZoomLinearLayout extends LinearLayout {
     private static final int INVALID_POINTER_ID = -1;
     private int mActivePointerId = INVALID_POINTER_ID;
     private ScaleGestureDetector mScaleDetector;
@@ -28,17 +29,17 @@ public class ZoomListView extends ListView {
     private float height;
 
 
-    public ZoomListView(Context context) {
+    public ZoomLinearLayout(Context context) {
         super(context);
         mScaleDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
     }
 
-    public ZoomListView(Context context, AttributeSet attrs) {
+    public ZoomLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         mScaleDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
     }
 
-    public ZoomListView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ZoomLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mScaleDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
     }

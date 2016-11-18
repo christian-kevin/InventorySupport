@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.project.kevin.inventorysupport.R;
 import com.project.kevin.inventorysupport.resources.JSONParser;
-import com.project.kevin.inventorysupport.resources.ZoomListView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -44,7 +43,7 @@ public class ItemDetail extends AppCompatActivity {
 
     private TextView norek,ukuran,namabarang,customer;
     private ArrayList<HashMap<String, String>> itemList;
-    private ZoomListView lv;
+    private ListView lv;
 
     String title;
    // private String strtanggal,strstokawalminggu,strin,strout,strstokakhirminggu;
@@ -96,7 +95,7 @@ public class ItemDetail extends AppCompatActivity {
         itemList = new ArrayList<>();
         new StockList().execute();
 
-        lv = (ZoomListView)findViewById(R.id.list);
+        lv = (ListView)findViewById(R.id.list);
 
 
         // when i=-1, loop will display heading of each column
