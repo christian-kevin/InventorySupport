@@ -38,8 +38,8 @@ public class ViewListGBB extends AppCompatActivity  {
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
 
-    private static String url_gbb = "http://10.0.2.2:8080/gudangbahanbaku.php";
-    private static String url_gbb2 = "http://10.0.2.2:8080/gudangbahanbakuta2.php";
+    private static String url_gbb = "http://www.tunasalfin.com/gudangbahanbaku.php";
+    private static String url_gbb2 = "http://www.tunasalfin.com/gudangbahanbakuta2.php";
 
     private ArrayList<HashMap<String, String>> itemList;
 

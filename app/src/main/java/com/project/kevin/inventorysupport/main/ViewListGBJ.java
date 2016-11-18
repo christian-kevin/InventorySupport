@@ -36,8 +36,8 @@ public class ViewListGBJ extends AppCompatActivity {
     private ProgressDialog pDialog;
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
-    private static String url_gbj = "http://10.0.2.2:8080/gudangbarangjadi.php";
-    private static String url_gbj2 = "http://10.0.2.2:8080/gudangbarangjadita2.php";
+    private static String url_gbj = "http://www.tunasalfin.com/gudangbarangjadi.php";
+    private static String url_gbj2 = "http://www.tunasalfin.com/gudangbarangjadita2.php";
 
     private ArrayList<HashMap<String, String>> itemList;
 

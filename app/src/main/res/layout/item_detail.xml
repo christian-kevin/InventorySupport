@@ -135,7 +135,7 @@
             android:layout_toEndOf="@+id/akhir" />
 
     </RelativeLayout>
-    <ListView
+    <com.project.kevin.inventorysupport.resources.ZoomListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list"
@@ -143,7 +143,7 @@
         android:scrollbars="vertical">
 
 
-    </ListView>
+    </com.project.kevin.inventorysupport.resources.ZoomListView>
 
 </LinearLayout></HorizontalScrollView>
 

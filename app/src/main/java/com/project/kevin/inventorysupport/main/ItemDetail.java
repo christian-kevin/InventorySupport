@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.project.kevin.inventorysupport.R;
 import com.project.kevin.inventorysupport.resources.JSONParser;
+import com.project.kevin.inventorysupport.resources.ZoomListView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -36,14 +37,14 @@ public class ItemDetail extends AppCompatActivity {
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
     JSONArray jArray = new JSONArray();
-    private static String url_gbj = "http://10.0.2.2:8080/gudangbarangjadidetail.php";
-    private static String url_gbb = "http://10.0.2.2:8080/gudangbahanbakudetail.php";
-    private static String url_gbb2 = "http://10.0.2.2:8080/gudangbahanbakuta2detail.php";
-    private static String url_gbj2 = "http://10.0.2.2:8080/gudangbarangjadita2detail.php";
+    private static String url_gbj = "http://www.tunasalfin.com/gudangbarangjadidetail.php";
+    private static String url_gbb = "http://www.tunasalfin.com/gudangbahanbakudetail.php";
+    private static String url_gbb2 = "http://www.tunasalfin.com/gudangbahanbakuta2detail.php";
+    private static String url_gbj2 = "http://www.tunasalfin.com/gudangbarangjadita2detail.php";
 
     private TextView norek,ukuran,namabarang,customer;
     private ArrayList<HashMap<String, String>> itemList;
-    private ListView lv;
+    private ZoomListView lv;
 
     String title;
    // private String strtanggal,strstokawalminggu,strin,strout,strstokakhirminggu;
@@ -95,8 +96,7 @@ public class ItemDetail extends AppCompatActivity {
         itemList = new ArrayList<>();
         new StockList().execute();
 
-        lv = (ListView)findViewById(R.id.list);
-
+        lv = (ZoomListView)findViewById(R.id.list);
 
 
         // when i=-1, loop will display heading of each column
