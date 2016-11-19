@@ -53,10 +53,10 @@ public class ViewListGBJ extends AppCompatActivity {
         itemList = new ArrayList<>();
         updatedate=(TextView)findViewById(R.id.updatedate);
 
-        if(getIntent().getExtras().getInt("jenisgudang")==3)
+        if(getIntent().getExtras().getInt("jenisgudang")==2)
         {
             title="Gudang Barang Jadi";
-        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
+        } else if(getIntent().getExtras().getInt("jenisgudang")==3)
         {
             title="Outstanding Order";
         }
