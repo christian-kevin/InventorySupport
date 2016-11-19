@@ -30,7 +30,7 @@
         android:layout_marginLeft="33dp"
         android:layout_marginStart="33dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="165dp"
         android:layout_centerHorizontal="true"/>
 
     <ImageButton

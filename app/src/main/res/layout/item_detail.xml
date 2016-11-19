@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.project.kevin.inventorysupport.resources.ZoomLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical">
@@ -60,9 +60,9 @@
 
         <TextView
             android:id="@+id/tanggal"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Tanggal"
             android:layout_alignParentTop="true"
@@ -71,9 +71,9 @@
 
         <TextView
             android:id="@+id/awal"
-            android:layout_width="57dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:text="Stock Awal"
             android:textColor="#5d5d5d"
             android:textStyle="bold"
@@ -84,10 +84,10 @@
 
         <TextView
             android:id="@+id/in"
-            android:layout_width="60dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:text="In"
             android:textStyle="bold"
             android:layout_alignBaseline="@+id/awal"
@@ -98,10 +98,10 @@
 
         <TextView
             android:id="@+id/out"
-            android:layout_width="60dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Out"
             android:layout_alignBottom="@+id/in"
@@ -110,10 +110,10 @@
 
         <TextView
             android:id="@+id/akhir"
-            android:layout_width="60dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Stock Akhir"
             android:layout_alignBaseline="@+id/out"
@@ -126,7 +126,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="UOM"
             android:layout_alignBaseline="@+id/akhir"
@@ -149,4 +149,4 @@
 
 
 
-</com.project.kevin.inventorysupport.resources.ZoomLinearLayout>
+</LinearLayout>
