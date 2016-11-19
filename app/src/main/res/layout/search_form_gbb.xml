@@ -21,7 +21,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="20"
-        android:id="@+id/norek" />
+        android:id="@+id/norek"
+        android:imeOptions="actionDone"
+        android:maxLines="1"/>
     <TextView
         android:text="Nama Barang"
         android:layout_width="match_parent"
@@ -36,7 +38,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="20"
-        android:id="@+id/namabarang" />
+        android:id="@+id/namabarang"
+        android:imeOptions="actionDone"
+        android:maxLines="1"/>
 
     <TextView
         android:text="Ukuran"
@@ -52,7 +56,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="20"
-        android:id="@+id/ukuran" />
+        android:id="@+id/ukuran"
+        android:imeOptions="actionDone"
+        android:maxLines="1"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
