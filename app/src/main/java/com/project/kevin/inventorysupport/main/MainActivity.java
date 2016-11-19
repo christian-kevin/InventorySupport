@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(v.getId()==R.id.btnOrder)
         {
-                Intent intent = new Intent(getApplicationContext(), SearchFormGBJ.class);
+                Intent intent = new Intent(getApplicationContext(), BranchCompanySelection.class);
         intent.putExtra("jenisgudang",3);
         startActivity(intent);}
 

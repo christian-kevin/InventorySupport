@@ -58,17 +58,18 @@ public class OrderDetail extends AppCompatActivity {
             ukuran.setText(getIntent().getExtras().getString("ukuran"));
             customer.setText(getIntent().getExtras().getString("customer"));
 
-        if(getIntent().getExtras().getInt("jenisgudang")==1)
-        {
-            title="Gudang Bahan Baku";
-        }
-        else if(getIntent().getExtras().getInt("jenisgudang")==3)
-        {
-            title="Gudang Barang Jadi";
-        } else if(getIntent().getExtras().getInt("jenisgudang")==4)
-        {
+
             title="Outstanding Order";
+
+        if(getIntent().getExtras().getInt("company")==1)
+        {
+            getSupportActionBar().setSubtitle("TA 1");
         }
+        if(getIntent().getExtras().getInt("company")==2)
+        {
+            getSupportActionBar().setSubtitle("TA 2");
+        }
+
 
         itemList = new ArrayList<>();
         new OrderList().execute();

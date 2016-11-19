@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="25dp"
         android:scrollbars="horizontal">
 
         <TextView
@@ -55,13 +55,13 @@
             android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100px">
+        android:layout_height="50dp">
 
         <TextView
             android:id="@+id/tanggal"
-            android:layout_width="200px"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Tanggal"
             android:layout_alignParentTop="true"
@@ -70,9 +70,9 @@
 
         <TextView
             android:id="@+id/noos"
-            android:layout_width="250px"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:text="No OS"
             android:textStyle="bold"
             android:layout_alignBaseline="@+id/tanggal"
@@ -82,10 +82,10 @@
 
         <TextView
             android:id="@+id/tanggalos"
-            android:layout_width="200px"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:text="Tanggal OS"
             android:textStyle="bold"
             android:layout_alignBaseline="@+id/noos"
@@ -96,10 +96,10 @@
 
         <TextView
             android:id="@+id/nopo"
-            android:layout_width="250px"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="No PO"
             android:layout_alignBottom="@+id/tanggalos"
@@ -108,10 +108,10 @@
 
         <TextView
             android:id="@+id/tanggaldorev"
-            android:layout_width="300px"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Tanggal DO Rev"
             android:layout_alignBaseline="@+id/nopo"
@@ -121,10 +121,10 @@
 
         <TextView
             android:id="@+id/order"
-            android:layout_width="250px"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Order"
             android:layout_alignBaseline="@+id/tanggaldorev"
@@ -134,10 +134,10 @@
 
         <TextView
             android:id="@+id/pengiriman"
-            android:layout_width="250px"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Kirim"
             android:layout_alignBaseline="@+id/order"
@@ -147,10 +147,10 @@
 
         <TextView
             android:id="@+id/sisaorder"
-            android:layout_width="250px"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="Sisa Order"
             android:layout_alignBaseline="@+id/pengiriman"
@@ -160,10 +160,10 @@
 
         <TextView
             android:id="@+id/uom"
-            android:layout_width="100px"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:textColor="#5d5d5d"
-            android:textSize="35px"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="UOM"
             android:layout_alignBaseline="@+id/sisaorder"

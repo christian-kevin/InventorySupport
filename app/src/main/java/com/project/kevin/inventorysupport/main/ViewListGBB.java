@@ -1,9 +1,11 @@
 package com.project.kevin.inventorysupport.main;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -185,15 +187,46 @@ public class ViewListGBB extends AppCompatActivity  {
             /**
              * Updating parsed JSON data into ListView
              * */
-            Log.d("Posting", itemList.toString());
-            ListAdapter adapter = new SimpleAdapter(
-                    ViewListGBB.this, itemList,
-                    R.layout.list_item_gbb, new String[]{"norek",
-                    "namabarang", "ukuran","stock"}, new int[]{R.id.norek,
-                    R.id.namabarang, R.id.ukuran,R.id.stock});
-            updatedate.setText("Update : " + date);
+            if(date!=null) {
+                Log.d("Posting", itemList.toString());
+                ListAdapter adapter = new SimpleAdapter(
+                        ViewListGBB.this, itemList,
+                        R.layout.list_item_gbb, new String[]{"norek",
+                        "namabarang", "ukuran", "stock"}, new int[]{R.id.norek,
+                        R.id.namabarang, R.id.ukuran, R.id.stock});
+                updatedate.setText("Update : " + date);
 
-            lv.setAdapter(adapter);
+                lv.setAdapter(adapter);
+            }
+            else
+            {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        ViewListGBB.this);
+
+                // set title
+                alertDialogBuilder.setTitle("There is no data !!");
+
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage("Press Back to Continue")
+                        .setCancelable(false)
+                        .setNeutralButton("Back",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // if this button is clicked, close
+                                // current activity
+                                Intent intent = new Intent(getApplicationContext(),SearchFormGBB.class);
+                                intent.putExtra("jenisgudang",getIntent().getExtras().getInt("jenisgudang"));
+                                intent.putExtra("company",getIntent().getExtras().getInt("company"));
+                                startActivity(intent);
+                            }});
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+            }
+
         }
     }
 
