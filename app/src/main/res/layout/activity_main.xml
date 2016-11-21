@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -11,7 +13,7 @@
 
     <ImageButton
         android:layout_width="200dp"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/rm_logo"
         android:scaleType="fitXY"
         android:id="@+id/btnGBB"
@@ -19,23 +21,25 @@
         android:layout_marginStart="33dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"/>
 
     <ImageButton
         android:layout_width="200dp"
         android:src="@drawable/fg_logo"
         android:id="@+id/btnGBJ"
         android:scaleType="fitXY"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="33dp"
         android:layout_marginStart="33dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="165dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"/>
 
     <ImageButton
         android:layout_width="200dp"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/or_logo"
         android:layout_marginLeft="33dp"
         android:layout_marginStart="33dp"
@@ -43,8 +47,10 @@
         android:layout_marginTop="315dp"
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY"
-        android:id="@+id/btnOrder" />
+        android:id="@+id/btnOrder"
+        android:adjustViewBounds="true"/>
 
 
 </RelativeLayout>
 
+</ScrollView>

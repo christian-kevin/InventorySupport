@@ -9,7 +9,7 @@
         android:text="Tanggal Mulai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40px"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:id="@+id/textView5" />
 
@@ -25,7 +25,7 @@
         android:text="Tanggal Selesai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40px"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:id="@+id/textView6" />
 
