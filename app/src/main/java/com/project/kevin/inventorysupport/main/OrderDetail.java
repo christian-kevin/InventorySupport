@@ -37,6 +37,7 @@ public class OrderDetail extends AppCompatActivity {
     JSONObject jObject = new JSONObject();
     JSONArray jArray = new JSONArray();
     private static String url = "http://www.tunasalfin.com/orderdetail.php";
+    private static String url2 = "http://www.tunasalfin.com/orderdetailta2.php";
 
     private TextView norek,ukuran,namabarang,customer;
     private Button buttonback;
@@ -126,8 +127,10 @@ public class OrderDetail extends AppCompatActivity {
             params.add(new BasicNameValuePair("datestart",getIntent().getExtras().getString("datestart")));
             params.add(new BasicNameValuePair("dateend",getIntent().getExtras().getString("dateend")));
             try {
+                if(getIntent().getExtras().getInt("company")==1)
                     jObject = jParser.makeHttpRequest(url, "GET", params);
-
+                if(getIntent().getExtras().getInt("company")==2)
+                    jObject = jParser.makeHttpRequest(url2, "GET", params);
                 Log.d("SearchResponse", jObject.toString());
                 jArray = jObject.getJSONArray(getIntent().getExtras().getString("norek"));
                 Log.d("Array",jArray.toString());
