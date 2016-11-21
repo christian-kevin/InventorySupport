@@ -102,7 +102,7 @@
             android:id="@+id/sisaorder"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:textColor="#5d5d5d"
+            android:textColor="#8b0000"
             android:textSize="16sp"
             android:textStyle="bold"
             android:text="Sisa Order"
