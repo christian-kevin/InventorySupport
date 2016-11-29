@@ -80,4 +80,44 @@
             android:layout_toRightOf="@+id/akhir"
             android:layout_toEndOf="@+id/akhir" />
 
+        <TextView
+            android:id="@+id/hold"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Hold"
+            android:layout_alignBaseline="@+id/uom"
+            android:layout_alignBottom="@+id/uom"
+            android:layout_toRightOf="@+id/uom"
+            android:layout_toEndOf="@+id/uom" />
+
+        <TextView
+            android:id="@+id/claim"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Claim Status"
+            android:layout_alignBaseline="@+id/hold"
+            android:layout_alignBottom="@+id/hold"
+            android:layout_toRightOf="@+id/hold"
+            android:layout_toEndOf="@+id/hold" />
+
+
+        <TextView
+            android:id="@+id/keterangan"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Keterangan"
+            android:layout_alignBaseline="@+id/claim"
+            android:layout_alignBottom="@+id/claim"
+            android:layout_toRightOf="@+id/claim"
+            android:layout_toEndOf="@+id/claim" />
+
 </RelativeLayout>

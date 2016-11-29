@@ -18,6 +18,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.project.kevin.inventorysupport.R;
+import com.project.kevin.inventorysupport.resources.ConnectionURL;
 import com.project.kevin.inventorysupport.resources.JSONParser;
 
 import org.apache.http.NameValuePair;
@@ -40,8 +41,6 @@ public class ViewListGBB extends AppCompatActivity  {
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
 
-    private static String url_gbb = "http://www.tunasalfin.com/gudangbahanbaku.php";
-    private static String url_gbb2 = "http://www.tunasalfin.com/gudangbahanbakuta2.php";
 
     private ArrayList<HashMap<String, String>> itemList;
 
@@ -142,9 +141,9 @@ public class ViewListGBB extends AppCompatActivity  {
             //params.add(new BasicNameValuePair("dateend",getIntent().getExtras().getString("dateend")));
             try {
                 if(getIntent().getExtras().getInt("company")==1)
-                    jObject = jParser.makeHttpRequest(url_gbb, "GET", params);
+                    jObject = jParser.makeHttpRequest(ConnectionURL.url_gbb, "GET", params);
                 if(getIntent().getExtras().getInt("company")==2)
-                    jObject = jParser.makeHttpRequest(url_gbb2, "GET", params);
+                    jObject = jParser.makeHttpRequest(ConnectionURL.url_gbb2, "GET", params);
                 Log.d("SearchResponse", jObject.toString());
                 JSONArray barang = jObject.getJSONArray("barang");
                 Log.d("Array", barang.toString());

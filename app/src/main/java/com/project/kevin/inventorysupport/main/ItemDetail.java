@@ -15,6 +15,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.project.kevin.inventorysupport.R;
+import com.project.kevin.inventorysupport.resources.ConnectionURL;
 import com.project.kevin.inventorysupport.resources.JSONParser;
 
 import org.apache.http.NameValuePair;
@@ -36,12 +37,9 @@ public class ItemDetail extends AppCompatActivity {
     JSONParser jParser = new JSONParser();
     JSONObject jObject = new JSONObject();
     JSONArray jArray = new JSONArray();
-    private static String url_gbj = "http://www.tunasalfin.com/gudangbarangjadidetail.php";
-    private static String url_gbb = "http://www.tunasalfin.com/gudangbahanbakudetail.php";
-    private static String url_gbb2 = "http://www.tunasalfin.com/gudangbahanbakuta2detail.php";
-    private static String url_gbj2 = "http://www.tunasalfin.com/gudangbarangjadita2detail.php";
 
-    private TextView norek,ukuran,namabarang,customer;
+
+    private TextView norek,ukuran,namabarang,customer,hold,claim,keterangan;
     private ArrayList<HashMap<String, String>> itemList;
     private ListView lv;
 
@@ -55,10 +53,20 @@ public class ItemDetail extends AppCompatActivity {
         norek=(TextView) findViewById(R.id.textnorek);
         namabarang=(TextView) findViewById(R.id.textnamabarang);
         ukuran=(TextView) findViewById(R.id.textukuran);
+        hold = (TextView)findViewById(R.id.hold);
+        claim = (TextView)findViewById(R.id.claim);
+        keterangan = (TextView)findViewById(R.id.keterangan);
         customer=(TextView) findViewById(R.id.textcustomer);
+
+        claim.setVisibility(View.INVISIBLE);
+        hold.setVisibility(View.INVISIBLE);
+        keterangan.setVisibility(View.INVISIBLE);
 
         if(getIntent().getExtras().getInt("jenisgudang")==1)
         {
+            claim.setVisibility(View.VISIBLE);
+            hold.setVisibility(View.VISIBLE);
+            keterangan.setVisibility(View.VISIBLE);
             title="Gudang Bahan Baku";
         }
         else if(getIntent().getExtras().getInt("jenisgudang")==2)
@@ -145,16 +153,16 @@ public class ItemDetail extends AppCompatActivity {
             params.add(new BasicNameValuePair("dateend",getIntent().getExtras().getString("dateend")));
             try {
                 if(getIntent().getExtras().getInt("jenisgudang")==2 && getIntent().getExtras().getInt("company")==1) {
-                    jObject = jParser.makeHttpRequest(url_gbj, "GET", params);
+                    jObject = jParser.makeHttpRequest(ConnectionURL.url_gbj_detail, "GET", params);
                 }
                 if(getIntent().getExtras().getInt("jenisgudang")==2 && getIntent().getExtras().getInt("company")==2) {
-                    jObject = jParser.makeHttpRequest(url_gbj2, "GET", params);
+                    jObject = jParser.makeHttpRequest(ConnectionURL.url_gbj2_detail, "GET", params);
                 }
                 if(getIntent().getExtras().getInt("jenisgudang")==1 && getIntent().getExtras().getInt("company")==1) {
-                    jObject = jParser.makeHttpRequest(url_gbb, "GET", params);
+                    jObject = jParser.makeHttpRequest(ConnectionURL.url_gbb_detail, "GET", params);
                 }
                 if(getIntent().getExtras().getInt("jenisgudang")==1 && getIntent().getExtras().getInt("company")==2) {
-                    jObject = jParser.makeHttpRequest(url_gbb2, "GET", params);
+                    jObject = jParser.makeHttpRequest(ConnectionURL.url_gbb2_detail, "GET", params);
                 }
                 Log.d("SearchResponse", jObject.toString());
                 jArray = jObject.getJSONArray(getIntent().getExtras().getString("norek"));
@@ -168,6 +176,13 @@ public class ItemDetail extends AppCompatActivity {
                     String out = c.getString("outjml");
                     String stokakhir = c.getString("stokakhirminggujml");
                     String uom = c.getString("uom");
+                    String hold = "",claim = "",keterangan ="";
+                    if(getIntent().getExtras().getInt("jenisgudang")==1 && getIntent().getExtras().getInt("company")==1)
+                    {
+                        hold = c.getString("holdjml");
+                        claim = c.getString("claimstatus");
+                        keterangan = c.getString("keterangan");
+                    }
                     //Log.d("Norek", norek);
                     HashMap<String, String> item = new HashMap<>();
 
@@ -178,14 +193,14 @@ public class ItemDetail extends AppCompatActivity {
                     item.put("out", out);
                     item.put("akhir", stokakhir);
                     item.put("uom", uom);
+                    item.put("hold",hold);
+                    item.put("claim",claim);
+                    item.put("keterangan",keterangan);
 
                     // adding contact to contact list
                     itemList.add(item);
 
-
                 }
-
-
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -206,8 +221,8 @@ public class ItemDetail extends AppCompatActivity {
             ListAdapter adapter = new SimpleAdapter(
                     ItemDetail.this, itemList,
                     R.layout.item_list_detail, new String[]{"tanggal", "awal",
-                    "in","out","akhir","uom"}, new int[]{R.id.tanggal,
-                    R.id.awal, R.id.in,R.id.out,R.id.akhir,R.id.uom});
+                    "in","out","akhir","uom","hold","claim","keterangan"}, new int[]{R.id.tanggal,
+                    R.id.awal, R.id.in,R.id.out,R.id.akhir,R.id.uom,R.id.hold,R.id.claim,R.id.keterangan});
 
             lv.setAdapter(adapter);
 
